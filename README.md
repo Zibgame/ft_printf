@@ -19,6 +19,7 @@ Ce projet t’apprend à :
 
 ```c
 int	ft_printf(const char *format, ...);
+---
 
 ### 1. Cloner le dépôt
 ```bash
