@@ -15,12 +15,6 @@ Ce projet t’apprend à :
 
 ---
 
-## ⚙️ Prototype de la fonction
-
-```c
-int	ft_printf(const char *format, ...);
----
-
 ### 1. Cloner le dépôt
 ```bash
 git clone https://github.com/Zibgame/ft_printf.git
