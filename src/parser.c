@@ -6,7 +6,7 @@
 /*   By: zcadinot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 14:29:34 by zcadinot          #+#    #+#             */
-/*   Updated: 2025/10/21 12:49:20 by zcadinot         ###   ########.fr       */
+/*   Updated: 2025/10/21 12:52:24 by zcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	ft_putarg(char type, va_list args)
 	{
 		char *s;
 
-		s = va_arg(args);
-		ft_putstr(s);
+		s = va_arg(args, char*);
+		ft_putstr_fd(s,1);
 	}
 }
 
