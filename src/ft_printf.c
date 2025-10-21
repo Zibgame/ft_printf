@@ -6,7 +6,7 @@
 /*   By: zcadinot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:34:59 by zcadinot          #+#    #+#             */
-/*   Updated: 2025/10/21 11:20:27 by zcadinot         ###   ########.fr       */
+/*   Updated: 2025/10/21 14:05:29 by zcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ int	ft_printf(const char *s, ...)
 	if (!s)
 		return (0);
 	parser(s,args_list);
+	va_end(args_list);	
 	return(ft_strlen(s));
 }
