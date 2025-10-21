@@ -6,7 +6,7 @@
 /*   By: zcadinot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:34:50 by zcadinot          #+#    #+#             */
-/*   Updated: 2025/10/21 12:06:53 by zcadinot         ###   ########.fr       */
+/*   Updated: 2025/10/21 13:32:06 by zcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 # include "libft/libft.h"
 
 int	ft_printf(const char *s, ...);
-void	ft_putstrc(const char *str);
 void	ft_putarg(char arg, va_list args);
 int	ft_is_arg(char c);
 void	parser(const char *str, va_list args);
+void	ft_putarg_hex(char type, va_list args);
 int	main(void);
 
 #endif

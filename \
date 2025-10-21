@@ -6,30 +6,24 @@
 /*   By: zcadinot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 14:29:34 by zcadinot          #+#    #+#             */
-/*   Updated: 2025/10/21 13:26:41 by zcadinot         ###   ########.fr       */
+/*   Updated: 2025/10/21 13:28:31 by zcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_puthex_recursive(unsigned int n, char *base)
+void	ft_putarg_hex(char type, va_list args, int n)
 {
-	if (n >= 16)
-		ft_puthex_recursive(n / 16, base);
-	ft_putchar_fd(base[n % 16], 1);
-}
+	char	*base;
 
-void	ft_putarg_hex(char type, va_list args)
-{
-	unsigned int	n;
-	char			*base;
-
-	n = va_arg(args, unsigned int);
+	n = va_arg(args,int);
 	if (type == 'x')
 		base = "0123456789abcdef";
 	else
 		base = "0123456789ABCDEF";
-	ft_puthex_recursive(n, base);
+	if (n >= 16)
+		ft_putarg_hex(type);
+	ft_putchar_fd(base[n % 16], 1);
 }
 
 static void	ft_putarg_int(char type, va_list args)
