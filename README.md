@@ -23,4 +23,4 @@ cd libft
 
 ### 📊 Nombre de lignes de code
 
-- # 2274 total
+- #### 2274 total
