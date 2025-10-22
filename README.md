@@ -20,6 +20,7 @@ Ce projet t’apprend à :
 git clone https://github.com/Zibgame/ft_printf.git
 cd libft
 ```
+---
 
 ### 📊 Nombre de lignes de code
 
