@@ -10,62 +10,52 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME        = libftprintf.a
-CC          = cc
-CFLAGS      = -Wall -Wextra -Werror -I.
-AR          = ar rcs
-RM          = rm -f
+NAME		= libftprintf.a
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror -I.
+AR			= ar rcs
+RM			= rm -f
 
-SRC_DIR     = ./src
-LIBFT_DIR   = ./libft
-LIBFT_A     = $(LIBFT_DIR)/libft.a
+LIBFT_DIR	= libft
+LIBFT_A		= $(LIBFT_DIR)/libft.a
 
-SRC         = $(wildcard $(SRC_DIR)/*.c)
-OBJ         = $(SRC:.c=.o)
+SRC			= src/ft_printf.c \
+			  src/parser.c \
+			  src/str.c \
+			  src/utils.c
 
-# **************************************************************************** #
-#                                   RULES                                      #
-# **************************************************************************** #
+OBJ			= $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "📦 Building libft..."
-	@$(MAKE) -C $(LIBFT_DIR)
-	@cp $(LIBFT_A) $(NAME)
+	@if [ -f "$(LIBFT_A)" ]; then \
+		echo "libft already built."; \
+	else \
+		if [ -f "$(LIBFT_DIR)/Makefile" ]; then \
+			make -C $(LIBFT_DIR); \
+		else \
+			echo "Warning: no libft Makefile found."; \
+		fi; \
+	fi
+	@cp $(LIBFT_A) $(NAME) 2>/dev/null || true
 	@$(AR) $(NAME) $(OBJ)
-	@echo "✅ libftprintf.a created successfully (includes libft)."
 
 %.o: %.c ft_printf.h
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "Compiling: $<"
 
 clean:
 	@$(RM) $(OBJ)
-	@$(MAKE) -C $(LIBFT_DIR) clean
-	@echo "🧹 Object files cleaned."
+	@if [ -f "$(LIBFT_DIR)/Makefile" ]; then \
+		make -C $(LIBFT_DIR) clean; \
+	fi
 
 fclean: clean
 	@$(RM) $(NAME)
-	@$(MAKE) -C $(LIBFT_DIR) fclean
-	@$(RM) test_printf
-	@echo "🗑️  All cleaned, including libftprintf.a and test binary."
+	@if [ -f "$(LIBFT_DIR)/Makefile" ]; then \
+		make -C $(LIBFT_DIR) fclean; \
+	fi
 
 re: fclean all
 
-# **************************************************************************** #
-#                                   TESTS                                      #
-# **************************************************************************** #
-
-TEST_SRC = $(wildcard $(SRC_DIR)/main*.c)
-TEST_BIN = test_printf
-
-test: all
-	@if [ -z "$(TEST_SRC)" ]; then \
-		echo "⚠️  Aucun fichier main*.c trouvé dans $(SRC_DIR)."; \
-	else \
-		echo "🧪 Compilation du binaire de test..."; \
-		$(CC) $(TEST_SRC) $(NAME) -I. -o $(TEST_BIN); \
-		echo "✅ Test binary created: ./$(TEST_BIN)"; \
-	fi
-
+.PHONY: all clean fclean re
