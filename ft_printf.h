@@ -6,7 +6,7 @@
 /*   By: zcadinot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:34:50 by zcadinot          #+#    #+#             */
-/*   Updated: 2025/10/21 13:58:56 by zcadinot         ###   ########.fr       */
+/*   Updated: 2025/10/22 12:54:30 by zcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
-int		ft_printf(const char *s, ...);
-void	ft_putarg(char arg, va_list args);
-int		ft_is_arg(char c);
-void	parser(const char *str, va_list args);
-void	ft_putarg_hex(char type, va_list args);
-void	ft_putptr(void *ptr);
-void	ft_putptr_recursive(unsigned long n);
-void	ft_putarg_hex(char type, va_list args);
-void	ft_puthex_recursive(unsigned int n, char *base);
+int	ft_printf(const char *s, ...);
+int	ft_putarg_char(char type, va_list args);
+int	ft_putarg_int(char type, va_list args);
+int	parser(const char *str, va_list args);
+int	ft_putarg_hex(char type, va_list args);
+int	ft_putptr(void *ptr);
+int	ft_putptr_recursive(unsigned long n);
+int	ft_putarg_hex(char type, va_list args);
+int	ft_puthex_recursive(unsigned int n, char *base);
 
 #endif
