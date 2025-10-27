@@ -18,6 +18,8 @@ int	ft_printf(const char *s, ...)
 	int		size;
 	va_list	args_list;
 
+	if (!s)
+		return (0);
 	size = 0;
 	va_start(args_list, s);
 	if (!s)
