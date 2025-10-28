@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zcadinot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: efoyer <efoyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 15:44:55 by zcadinot          #+#    #+#             */
-/*   Updated: 2025/10/19 01:44:21 by zcadinot         ###   ########.fr       */
+/*   Created: 2025/10/20 10:12:09 by efoyer            #+#    #+#             */
+/*   Updated: 2025/10/22 15:01:41 by efoyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
-	int	i;
-
-	if (!s)
-		return ;
-	i = 0;
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
-	write(fd, "\n", 1);
+	write(fd, &c, 1);
 }
 
-// int main(void)
-// {
-//     ft_putendl_fd("Hello", 1);
-//     return (0);
-// }
+/*int main (void)
+{
+	ft_putchar_fd('c', 0);
+}*/

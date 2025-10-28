@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zcadinot <zcadinot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 02:21:06 by zcadinot          #+#    #+#             */
-/*   Updated: 2025/10/19 01:39:57 by zcadinot         ###   ########.fr       */
+/*   Created: 2025/07/14 20:37:55 by zcadinot          #+#    #+#             */
+/*   Updated: 2025/10/22 10:43:58 by zcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+size_t	ft_strlen(const char *str)
 {
-	t_list	*temp;
+	size_t	len;
 
-	if (!lst || !del)
-		return ;
-	while (*lst)
+	len = 0;
+	while (str[len] != '\0')
 	{
-		temp = (*lst)->next;
-		del((*lst)->content);
-		free(*lst);
-		*lst = temp;
+		len++;
 	}
-	*lst = NULL;
+	return (len);
 }
 
-// void del(void *p) { free(p); }
 // int main(void)
 // {
-//     t_list *a = ft_lstnew(strdup("one"));
-//     ft_lstadd_back(&a, ft_lstnew(strdup("two")));
-//     ft_lstclear(&a, del);
+//     printf("%zu\n", ft_strlen("abcdef"));
 //     return (0);
 // }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zcadinot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/20 13:21:38 by zcadinot          #+#    #+#             */
-/*   Updated: 2025/10/22 12:28:09 by zcadinot         ###   ########.fr       */
+/*   Created: 2025/10/28 12:04:22 by zcadinot          #+#    #+#             */
+/*   Updated: 2025/10/28 12:04:24 by zcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(void)
 	b = 3735928559;
 	ptr = &a;
 	printf("=== TEST %%x (hex minuscule) ===\n");
-	printf("printf : %c\n", '0');
-	ft_printf("ft_printf : %c\n", '0');
+	printf(NULL);
+	ft_printf(NULL);
 	return (0);
 }

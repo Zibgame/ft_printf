@@ -6,56 +6,43 @@
 #    By: zcadinot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/20 11:29:35 by zcadinot          #+#    #+#              #
-#    Updated: 2025/10/22 22:20:00 by zcadinot         ###   ########.fr        #
+#    Updated: 2025/10/28 23:40:00 by zcadinot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= libftprintf.a
-CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -I.
-AR			= ar rcs
-RM			= rm -f
+NAME	= libftprintf.a
+CC		= cc
+CFLAGS	= -Wall -Wextra -Werror -I.
+AR		= ar rcs
+RM		= rm -f
 
-LIBFT_DIR	= libft
-LIBFT_A		= $(LIBFT_DIR)/libft.a
+SRC		= src/ft_printf.c \
+		  src/parser.c \
+		  src/utils.c \
+		  ft_putchar_fd.c \
+		  ft_putnbr_fd.c \
+		  ft_putunbr_fd.c \
+		  ft_strlen.c
 
-SRC			= src/ft_printf.c \
-			  src/parser.c \
-			  src/str.c \
-			  src/utils.c
-
-OBJ			= $(SRC:.c=.o)
+OBJ		= $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@if [ -f "$(LIBFT_A)" ]; then \
-		echo "libft already built."; \
-	else \
-		if [ -f "$(LIBFT_DIR)/Makefile" ]; then \
-			make -C $(LIBFT_DIR); \
-		else \
-			echo "Warning: no libft Makefile found."; \
-		fi; \
-	fi
-	@cp $(LIBFT_A) $(NAME) 2>/dev/null || true
-	@$(AR) $(NAME) $(OBJ)
+	$(AR) $(NAME) $(OBJ)
 
 %.o: %.c ft_printf.h
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@$(RM) $(OBJ)
-	@if [ -f "$(LIBFT_DIR)/Makefile" ]; then \
-		make -C $(LIBFT_DIR) clean; \
-	fi
+	$(RM) $(OBJ)
 
 fclean: clean
-	@$(RM) $(NAME)
-	@if [ -f "$(LIBFT_DIR)/Makefile" ]; then \
-		make -C $(LIBFT_DIR) fclean; \
-	fi
+	$(RM) $(NAME) a.out
 
 re: fclean all
 
-.PHONY: all clean fclean re
+test: $(NAME)
+	$(CC) $(CFLAGS) -I. src/main.c $(NAME) -o a.out
+
+.PHONY: all clean fclean re test

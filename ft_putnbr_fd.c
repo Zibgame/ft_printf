@@ -1,46 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zcadinot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 07:54:14 by zcadinot          #+#    #+#             */
-/*   Updated: 2025/10/19 01:43:30 by zcadinot         ###   ########.fr       */
+/*   Created: 2025/10/14 15:02:44 by zcadinot          #+#    #+#             */
+/*   Updated: 2025/10/22 14:48:34 by zcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include "ft_printf.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int	ft_putnbr_fd(int n, int fd)
 {
-	char			*res;
-	unsigned int	i;
+	long	nb;
+	int		len;
 
-	if (!s || !f)
-		return (NULL);
-	res = malloc(ft_strlen(s) + 1);
-	if (!res)
-		return (NULL);
-	i = 0;
-	while (s[i])
+	nb = n;
+	len = 0;
+	if (nb < 0)
 	{
-		res[i] = f(i, s[i]);
-		i++;
+		ft_putchar_fd('-', fd);
+		nb = -nb;
+		len++;
 	}
-	res[i] = '\0';
-	return (res);
+	if (nb >= 10)
+		len += ft_putnbr_fd(nb / 10, fd);
+	ft_putchar_fd((nb % 10) + '0', fd);
+	len++;
+	return (len);
 }
 
-// char f(unsigned int i, char c)
-// {
-//     return (c + i);
-// }
 // int main(void)
 // {
-//     char *s = ft_strmapi("abc", f);
-//     printf("%s\n", s);
-//     free(s);
+//     ft_putnbr_fd(42, 1);
 //     return (0);
 // }
