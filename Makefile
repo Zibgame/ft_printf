@@ -6,7 +6,7 @@
 #    By: zcadinot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/20 11:29:35 by zcadinot          #+#    #+#              #
-#    Updated: 2025/10/28 23:40:00 by zcadinot         ###   ########.fr        #
+#    Updated: 2025/11/19 19:55:39 by zcadinot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,10 @@ RM		= rm -f
 SRC		= src/ft_printf.c \
 		  src/parser.c \
 		  src/utils.c \
-		  ft_putchar_fd.c \
-		  ft_putnbr_fd.c \
+		  ft_putcharf_fd.c \
+		  ft_putnbrf_fd.c \
 		  ft_putunbr_fd.c \
-		  ft_strlen.c
+		  ft_strlenf.c
 
 OBJ		= $(SRC:.c=.o)
 

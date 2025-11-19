@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putcharf_fd.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zcadinot <zcadinot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: efoyer <efoyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/14 20:37:55 by zcadinot          #+#    #+#             */
-/*   Updated: 2025/10/22 10:43:58 by zcadinot         ###   ########.fr       */
+/*   Created: 2025/10/20 10:12:09 by efoyer            #+#    #+#             */
+/*   Updated: 2025/11/19 19:59:43 by zcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_putcharf_fd(char c, int fd)
 {
-	size_t	len;
-
-	len = 0;
-	while (str[len] != '\0')
-	{
-		len++;
-	}
-	return (len);
+	write(fd, &c, 1);
 }
 
-// int main(void)
-// {
-//     printf("%zu\n", ft_strlen("abcdef"));
-//     return (0);
-// }
+/*int main (void)
+{
+	ft_putchar_fd('c', 0);
+}*/

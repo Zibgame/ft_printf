@@ -6,7 +6,7 @@
 /*   By: zcadinot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 14:49:24 by zcadinot          #+#    #+#             */
-/*   Updated: 2025/10/22 14:49:29 by zcadinot         ###   ########.fr       */
+/*   Updated: 2025/11/19 20:00:17 by zcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_putunbr_fd(unsigned int n, int fd)
 	len = 0;
 	if (n >= 10)
 		len += ft_putunbr_fd(n / 10, fd);
-	ft_putchar_fd((n % 10) + '0', fd);
+	ft_putcharf_fd((n % 10) + '0', fd);
 	len++;
 	return (len);
 }

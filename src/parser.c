@@ -6,7 +6,7 @@
 /*   By: zcadinot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 14:29:34 by zcadinot          #+#    #+#             */
-/*   Updated: 2025/10/22 13:11:23 by zcadinot         ###   ########.fr       */
+/*   Updated: 2025/11/19 19:59:13 by zcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_putarg_int(char type, va_list args)
 
 	len = 0;
 	if (type == 'd' || type == 'i')
-		len = ft_putnbr_fd(va_arg(args, int), 1);
+		len = ft_putnbrf_fd(va_arg(args, int), 1);
 	else if (type == 'u')
 		return (ft_putunbr_fd((unsigned int)va_arg(args, int), 1));
 	return (len);
@@ -37,7 +37,7 @@ int	ft_putarg_char(char type, va_list args)
 		s = va_arg(args, char *);
 		if (!s)
 			s = "(null)";
-		len = write(1, s, ft_strlen(s));
+		len = write(1, s, ft_strlenf(s));
 	}
 	else if (type == '%')
 		len = write(1, "%", 1);
